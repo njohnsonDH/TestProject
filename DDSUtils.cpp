@@ -29,6 +29,10 @@ std::string s_sprintf(const char* fmt, ...)
         return "";
     va_end(args);
 
+// these are some comments
+// just to see a diff with
+// the previous version
+
     return buffer;
 }
 
