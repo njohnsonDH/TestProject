@@ -32,23 +32,4 @@ std::string s_sprintf(const char* fmt, ...)
     return buffer;
 }
 
-//------------------------------------------------------------------------------
-// waitms
-//>
-int waitms(unsigned int millisecs)
-{
-#ifdef WIN32
-    ::Sleep(millisecs);
-    return 0;
-#else
-    fd_set dummy;
-    struct timeval toWait;
-
-    FD_ZERO(&dummy);
-    toWait.tv_sec = millisecs / 1000;
-    toWait.tv_usec = (millisecs % 1000) * 1000;
-
-    return select(0, &dummy, NULL, NULL, &toWait);
-#endif
-}
 }
